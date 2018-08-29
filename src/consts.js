@@ -1,1 +1,1 @@
-export const NAMESPACE_SEPARATOR = '__';
+export const NAMESPACE_SEPARATOR = "__";

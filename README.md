@@ -1,4 +1,4 @@
-# vuexl
+# vuex-loading
 
 自动处理 vuex action中的 loading 状态，不用一遍遍地写 showLoading 和 hideLoading
 
@@ -8,7 +8,7 @@
 
 ## 安装 vuexl
 ```shell
-$ npm i -S vuexl
+$ npm i -S vuex-loading
 ```
 
 
@@ -17,13 +17,13 @@ $ npm i -S vuexl
 ```javascript
 import Vue from 'vue';
 import Vuex, { mapActions, mapState } from 'vuex';
-import Vuexl, { mapLoadings } from 'vuexl';
+import VuexLoading, { mapLoadings } from 'vuex-loading';
 import axios from 'axios';
 
 Vue.use(Vuex);
 
-// 创建 Vuexl
-const vxl = Vuexl.create({
+// 创建 VuexLoading
+const vxl = VuexLoading.create({
   beforeAction(actionType, payload) {},
   afterAction(actionType, payload) {},
 });

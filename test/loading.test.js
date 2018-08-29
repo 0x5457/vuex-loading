@@ -1,7 +1,6 @@
+import vm from "./vm";
 
-import vm from './vm';
-
-it('test loading', done => {
+it("test loading", done => {
   expect(vm.$store.state.loadings.news).toBe(false);
   vm.getNews().then(() => {
     expect(vm.$store.state.loadings.news).toBe(false);

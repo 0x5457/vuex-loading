@@ -1,8 +1,8 @@
-import loadings from './loadings';
+import loadings from "./loadings";
 
-import {NAMESPACE_SEPARATOR} from './consts';
+import { NAMESPACE_SEPARATOR } from "./consts";
 
-export default class Vuexl {
+export default class VuexLoading {
   constructor(options) {
     Object.assign(this, options);
   }
@@ -10,16 +10,16 @@ export default class Vuexl {
   _hookAction(path, actionKey, action, parent, beforeAction, afterAction) {
     let selfPath = [...path];
     parent[actionKey] = async (context, params) => {
-      const actionType = `${selfPath.join('/')}/${actionKey}`;
-      context.commit('loadings/startLoading', selfPath.join(NAMESPACE_SEPARATOR), {root: true});
+      const actionType = `${selfPath.join("/")}/${actionKey}`;
+      context.commit("loadings/startLoading", selfPath.join(NAMESPACE_SEPARATOR), { root: true });
       beforeAction(actionType, params);
       try {
         await action(context, params);
       } finally {
-        context.commit('loadings/endLoading', selfPath.join(NAMESPACE_SEPARATOR), {root: true});
+        context.commit("loadings/endLoading", selfPath.join(NAMESPACE_SEPARATOR), { root: true });
         afterAction(actionType, params);
       }
-    }
+    };
   }
 
   _handleStore(store, path = []) {
@@ -48,8 +48,8 @@ export default class Vuexl {
       ...store,
       modules: {
         ...store.modules,
-        loadings,
-      },
+        loadings
+      }
     };
   }
 

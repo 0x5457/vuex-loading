@@ -1,10 +1,10 @@
-import Vuexl from './Vuexl';
-import * as helpers from "./helpers";
+import VuexLoading from "./VuexLoading";
+
 export * from "./helpers";
 
 export default {
   create(options) {
-    return new Vuexl(options);
+    return new VuexLoading(options);
   }
 };
 
