@@ -4,41 +4,25 @@
   "description": "自动处理 vuex action中的 loading 状态，不用一遍遍地写 showLoading 和 hideLoading",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint src test",
-    "test": "jest --env=jsdom",
-    "precommit": "lint-staged"
+    "test": "jest --env=jsdom"
   },
   "keywords": [
     "vuex",
     "loading"
   ],
   "author": "TW",
-  "license": "ISC",
-  "lint-staged": {
-    "*.{js,json,css}": [
-      "npm run lint",
-      "npm run test",
-      "prettier --write",
-      "git add"
-    ]
-  },
+  "license": "MIT",
   "peerDependencies": {
     "vue": "^2.0.0",
     "vuex": "^2.0.0 || ^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
-    "eslint": "^5.4.0",
-    "eslint-config-prettier": "^3.0.1",
-    "eslint-plugin-prettier": "^2.6.2",
-    "husky": "^0.14.3",
     "jest": "^23.5.0",
-    "lint-staged": "^7.2.2",
-    "prettier": "^1.14.2",
     "regenerator-runtime": "^0.12.1",
     "vue": "^2.5.17",
     "vuex": "^3.0.1"
