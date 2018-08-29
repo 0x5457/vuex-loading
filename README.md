@@ -28,7 +28,7 @@ const vxl = Vuexl.create({
   afterAction(actionType, payload) {},
 });
 
-// vxl.create(store);  将store对象传入vxl
+// vxl.create(store);  将store对象传入vxl
 const store = new Vuex.Store(vxl.store({
   modules: {
     news: {
