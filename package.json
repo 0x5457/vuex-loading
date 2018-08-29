@@ -1,7 +1,7 @@
 {
   "name": "vuexl",
   "version": "1.0.0",
-  "description": "自动处理 loading 状态，不用一遍遍地写 showLoading 和 hideLoading",
+  "description": "自动处理 vuex action中的 loading 状态，不用一遍遍地写 showLoading 和 hideLoading",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src test",
