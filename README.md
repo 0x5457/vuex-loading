@@ -1,4 +1,4 @@
-# vuex-loading
+# @tw666/vuex-loading
 
 自动处理 vuex action中的 loading 状态，不用一遍遍地写 showLoading 和 hideLoading
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 安装 vuexl
+## 安装 vuex-loading
 ```shell
 $ npm i -S @tw666/vuex-loading
 ```

@@ -1,6 +1,6 @@
 {
   "name": "@tw666/vuex-loading",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "自动处理 vuex action中的 loading 状态，不用一遍遍地写 showLoading 和 hideLoading",
   "main": "src/index.js",
   "scripts": {
