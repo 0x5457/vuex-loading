@@ -8,7 +8,7 @@
 
 ## 安装 vuexl
 ```shell
-$ npm i -S @tw/vuex-loading
+$ npm i -S @tw666/vuex-loading
 ```
 
 
