@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "demo": "webpack-dev-server --config demo/webpack.dev.js",
-    "test": "jest --env=jsdom"
+    "test": "jest --env=jsdom",
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [
     "vuex",
