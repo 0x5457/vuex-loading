@@ -4,6 +4,7 @@
   "description": "自动处理 vuex action中的 loading 状态，不用一遍遍地写 showLoading 和 hideLoading",
   "main": "src/index.js",
   "scripts": {
+    "demo": "webpack-dev-server --config demo/webpack.dev.js",
     "test": "jest --env=jsdom"
   },
   "keywords": [
@@ -22,9 +23,15 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^23.5.0",
     "regenerator-runtime": "^0.12.1",
     "vue": "^2.5.17",
-    "vuex": "^3.0.1"
+    "vue-loader": "^15.4.1",
+    "vue-template-compiler": "^2.5.17",
+    "vuex": "^3.0.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
   }
 }
