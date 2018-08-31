@@ -1,8 +1,8 @@
-import { NAMESPACE_SEPARATOR } from "./consts";
+import {NAMESPACE_SEPARATOR} from "./consts";
 
 export function mapLoadings(names) {
   let computedLoadings = {};
-  normalizeMap(names).forEach(({ key, val }) => {
+  normalizeMap(names).forEach(({key, val}) => {
 
     computedLoadings[key.split("/").pop()] = function mappedState() {
       if (typeof val === "function") {
@@ -16,6 +16,6 @@ export function mapLoadings(names) {
 
 function normalizeMap(map) {
   return Array.isArray(map)
-    ? map.map(key => ({ key: key + "Loading", val: key }))
-    : Object.keys(map).map(key => ({ key, val: map[key] }));
+    ? map.map(key => ({key: key + "Loading", val: key}))
+    : Object.keys(map).map(key => ({key, val: map[key]}));
 }

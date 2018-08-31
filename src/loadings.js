@@ -3,10 +3,10 @@ export default {
   state: {},
   mutations: {
     startLoading(state, name) {
-      Object.assign(state, { [name]: true });
+      Object.assign(state, {[name]: true});
     },
     endLoading(state, name) {
-      Object.assign(state, { [name]: false });
+      Object.assign(state, {[name]: false});
     }
   },
   actions: {}

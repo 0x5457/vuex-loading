@@ -1,6 +1,6 @@
 import loadings from "./loadings";
 
-import { NAMESPACE_SEPARATOR } from "./consts";
+import {NAMESPACE_SEPARATOR} from "./consts";
 
 export default class VuexLoading {
   constructor(options) {
@@ -11,12 +11,12 @@ export default class VuexLoading {
     let selfPath = [...path];
     parent[actionKey] = async (context, params) => {
       const actionType = `${selfPath.join("/")}/${actionKey}`;
-      context.commit("loadings/startLoading", selfPath.join(NAMESPACE_SEPARATOR), { root: true });
+      context.commit("loadings/startLoading", selfPath.join(NAMESPACE_SEPARATOR), {root: true});
       beforeAction(actionType, params);
       try {
         await action(context, params);
       } finally {
-        context.commit("loadings/endLoading", selfPath.join(NAMESPACE_SEPARATOR), { root: true });
+        context.commit("loadings/endLoading", selfPath.join(NAMESPACE_SEPARATOR), {root: true});
         afterAction(actionType, params);
       }
     };
