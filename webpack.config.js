@@ -5,7 +5,8 @@ module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
   output: {
     filename: 'vuex-loading.js',
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, 'dist'),
+    library: 'vuexLoading',
   },
   module: {
     rules: [
