@@ -7,6 +7,13 @@ it("test loading", done => {
     done();
   });
   expect(vm.$store.state.loadings.news).toBe(true);
+
+  expect(vm.$store.state.loadings.other).toBe(false);
+  vm.otherAction().then(() => {
+    expect(vm.$store.state.loadings.other).toBe(false);
+    done();
+  });
+  expect(vm.$store.state.loadings.other).toBe(true);
 });
 
 

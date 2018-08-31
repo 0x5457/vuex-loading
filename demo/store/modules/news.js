@@ -1,3 +1,5 @@
+import vuexLoading from '../../../src/';
+
 export default {
   namespaced: true,
   state: {
@@ -6,7 +8,10 @@ export default {
   mutations: {
     updateNews(state, news) {
       Object.assign(state, {news});
-    }
+    },
+    like(state, index) {
+      state.news[index].like = !state.news[index].like;
+    },
   },
   actions: {
     getNews({commit}) {
@@ -25,6 +30,15 @@ export default {
           resolve();
         }, 1000);
       });
+    },
+    @vuexLoading.loading('like')
+    doLike({ commit }, index) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          commit('like', index);
+          resolve();
+        }, 1000);
+      })
     },
   }
 };

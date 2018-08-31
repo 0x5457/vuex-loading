@@ -1,10 +1,6 @@
-import VuexLoading from "./VuexLoading";
+import vuexLoading from "./vuexLoading";
 
 export * from "./helpers";
 
-export default {
-  create(options) {
-    return new VuexLoading(options);
-  }
-};
+export default vuexLoading;
 

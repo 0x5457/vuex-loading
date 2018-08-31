@@ -1,26 +1,25 @@
 import Vue from "vue";
-import Vuex, { mapActions } from "vuex";
-import VuexLoading, { mapLoadings } from "../src/";
+import Vuex, {mapActions} from "vuex";
+import vuexLoading, {mapLoadings} from "../src/";
 
 
 Vue.config.productionTip = false;
 Vue.use(Vuex);
 
 
-const vxl = VuexLoading.create();
 export default new Vue({
   methods: {
-    ...mapActions("news", ["getNews"])
+    ...mapActions('news', ['getNews', 'otherAction'])
   },
   computed: {
-    ...mapLoadings(["news", "news/child"]),
+    ...mapLoadings(['news', 'news/child', 'other']),
     ...mapLoadings({
-      newsLoading1: "news",
+      newsLoading1: 'news',
       newsLoading2: state => state.news,
-      childLoading1: "news/child"
+      childLoading1: 'news/child'
     })
   },
-  store: new Vuex.Store(vxl.store({
+  store: new Vuex.Store(vuexLoading.store({
     modules: {
       news: {
         namespaced: true,
@@ -35,6 +34,14 @@ export default new Vue({
               }, 500);
             }, reject => {
             });
+          },
+          @vuexLoading.loading('other')
+          async otherAction() {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve();
+              }, 500);
+            });
           }
         },
         modules: {
@@ -46,7 +53,6 @@ export default new Vue({
                   setTimeout(() => {
                     resolve();
                   }, 500);
-                }, reject => {
                 });
               }
             }

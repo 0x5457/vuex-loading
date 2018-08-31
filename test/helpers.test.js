@@ -6,4 +6,5 @@ it("test loading", () => {
   expect(vm.newsLoading2).toBe(false);
   expect(vm.childLoading).toBe(false);
   expect(vm.childLoading1).toBe(false);
+  expect(vm.otherLoading).toBe(false);
 });

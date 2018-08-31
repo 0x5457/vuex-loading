@@ -17,19 +17,17 @@ $ npm i -S @tw666/vuex-loading
 ```javascript
 import Vue from 'vue';
 import Vuex, { mapActions, mapState } from 'vuex';
-import VuexLoading, { mapLoadings } from 'vuex-loading';
+import vuexLoading, { mapLoadings } from 'vuex-loading';
 import axios from 'axios';
 
 Vue.use(Vuex);
 
-// 创建 VuexLoading
-const vxl = VuexLoading.create({
-  beforeAction(actionType, payload) {},
-  afterAction(actionType, payload) {},
-});
+// after before Hook
+vuexLoading.beforeAction = (actionType, payload) => {}
+vuexLoading.afterAction = (actionType, payload) => {}
 
-// vxl.create(store);  将store对象传入vxl
-const store = new Vuex.Store(vxl.store({
+//   将store对象传入vuexLoading
+const store = new Vuex.Store(vuexLoading.store({
   modules: {
     news: {
       namespaced: true,
@@ -46,6 +44,14 @@ const store = new Vuex.Store(vxl.store({
           const res = await axios.get('/news');
           commit('updateNews', res.data.data);
         },
+        @vuexLoading.loading('other')
+        async otherAction() {
+          return new Promise(resolve => {
+            setTimeout(() => {
+              resolve();
+            }, 500);
+          });
+        }
       },
     },
   },
@@ -56,11 +62,12 @@ new Vue({
   store,
   computed: {
     // 将 this.newsLoading 映射为 this.$sotre.state.loadings.news
-    ...mapLoadings(['news']),
+    // 将 this.otherLoading 映射为 this.$sotre.state.loadings.other
+    ...mapLoadings(['news', 'other']),
     ...mapState('news', ['news']),
   },
   methods: {
-    ...mapActions('news', ['getNews']),
+    ...mapActions('news', ['getNews', 'otherAction']),
   },
   created() {
     this.getNews();
@@ -80,3 +87,6 @@ new Vue({
 });
 
 ```
+
+更多用法见 [demo](https://github.com/tw1997/vuex-loading/tree/master/demo)
+
