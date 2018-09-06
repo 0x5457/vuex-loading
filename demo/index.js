@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import Index from './index.vue';
 import store from './store';
+import Index from './index.vue';
 
 new Vue({
   el: 'body',

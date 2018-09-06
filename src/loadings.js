@@ -1,14 +1,22 @@
+import Vue from 'vue';
 export default {
   namespaced: true,
-  state: {},
+  state: {
+  },
   mutations: {
+    addLoading(state, name) {
+      Vue.set(state, [name], false);
+    },
     startLoading(state, name) {
-      Object.assign(state, {[name]: true});
+      if (state[name] !== undefined) {
+        Object.assign(state, {[name]: true});
+      }
     },
     endLoading(state, name) {
-      Object.assign(state, {[name]: false});
+      if (state[name] !== undefined) {
+        Object.assign(state, {[name]: false});
+      }
     }
   },
-  actions: {}
 };
 

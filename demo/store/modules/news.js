@@ -1,9 +1,8 @@
-import vuexLoading from '../../../src/';
 
 export default {
   namespaced: true,
   state: {
-    news: []
+    news: [],
   },
   mutations: {
     updateNews(state, news) {
@@ -31,7 +30,6 @@ export default {
         }, 1000);
       });
     },
-    @vuexLoading.loading('like')
     doLike({ commit }, index) {
       return new Promise(resolve => {
         setTimeout(() => {

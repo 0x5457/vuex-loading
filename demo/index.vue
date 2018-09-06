@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
+    loadingGroup: {{loadingGroup}}
     <button @click="getNews">重新加载</button>
-    <div class="loading" v-if="newsLoading">加载中...</div>
+    <div class="loading" v-if="loading">加载中...</div>
     <div class="news-item" v-else v-for="(item, index) in news">
       <h3>{{item.title}}</h3>
       <p>{{item.content}}</p>
@@ -12,15 +13,21 @@
 
 <script>
   import {mapActions, mapState} from 'vuex';
-  import {mapLoadings} from '../src';
+  import {getLoadings}  from '../src';
 
   export default {
     name: 'Index',
     computed: {
-      ...mapLoadings(['news', 'like']),
-      ...mapState('news', ['news'])
+      ...getLoadings((loadings) => ({
+        loading: loadings.action('news/getNews'),
+        likeLoading: loadings.action('news/doLike'),
+        loadingGroup: loadings.action(['news/getNews', 'news/doLike']),
+      })),
+      ...mapState('news', ['news']),
     },
-    methods: mapActions('news', ['getNews', 'doLike']),
+    methods: {
+      ...mapActions('news', ['getNews', 'doLike']),
+    },
     mounted() {
       this.getNews();
     },
